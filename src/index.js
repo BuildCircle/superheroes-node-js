@@ -1,6 +1,5 @@
-import express from 'express';
-import { battle } from './battle';
-import { getCharacters, Character } from './getCharacters'
+const express = require('express');
+const battle = require('./battle');
 
 const app = express();
 
@@ -13,4 +12,4 @@ app.get('/battle', (req, res) => {
   res.send(400);
 });
 
-export default app;
+module.exports = app;

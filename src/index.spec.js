@@ -1,5 +1,5 @@
-import request from "supertest"
-import app from "./index"
+const request = require("supertest")
+const app = require("./index")
 const baseURL = "http://localhost:8080"
 
 app.listen(8080, () => {
