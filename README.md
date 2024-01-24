@@ -2,7 +2,7 @@
 
 Superheroes and Supervillains are always battling it out, but how do we know who wins? This repo contains a function that gives us that answer. 
 
-The `battle` function in `src/main.ts` takes a hero name, and a villain name, and returns us the hero or villain that would win in a battle.
+The `battle` function in `src/battle.js` takes a hero name, and a villain name, and returns us the hero or villain that would win in a battle.
 
 The characters and their stats are stored in a json file stored in AWS S3 - https://s3.eu-west-2.amazonaws.com/build-circle/characters.json
 
