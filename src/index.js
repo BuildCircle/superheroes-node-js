@@ -1,7 +1,7 @@
 const express = require('express');
 const battle = require('./battle');
 
-const app = express()
+const app = express();
 
 app.get('/battle', (req, res) => {
   const result = battle(req.query.hero, req.query.villain)
