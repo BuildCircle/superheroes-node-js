@@ -3,13 +3,18 @@ const getCharacters = require('./getCharacters')
 
 jest.mock('./getCharacters')
 
-it('battle should return the hero if they have a higher score', () => {
-  getCharacters.mockReturnValue({
+it('battle should return the hero if they have a higher score', async() => {
+  getCharacters.mockResolvedValue({
     items: [
       {name: 'Winner', score: 9.0, type: 'hero'},
       {name: 'Loser', score: 8.0, type: 'villain'}
     ]
   })
 
-  expect(battle('Winner', 'Loser')).toEqual({name: "Winner", score: 9.0, type: 'hero'})
+  const battleResult  = await battle('Winner', 'Loser')
+  expect(battleResult).toEqual({name: "Winner", score: 9.0, type: 'hero'})
 })
+
+// TODO :
+// - Loser not part of list
+// -

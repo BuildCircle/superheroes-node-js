@@ -7,4 +7,14 @@ describe("GET /battle", () => {
 
     expect(response.statusCode).toBe(200);
   });
+
+  it("should return 404", async () => {
+    const response = await request(app).get("/battle?hero=Batman&villain=HERO_NOT_EXISTING");
+    expect(response.statusCode).toBe(404);
+  });
+
+  it("should return 400", async () => {
+    const response = await request(app).get("/battle?hero=Batman");
+    expect(response.statusCode).toBe(400);
+  });
 });
