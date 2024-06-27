@@ -1,10 +1,18 @@
-const express = require('express');
-const battle = require('./battle');
+const express = require("express");
+const battle = require("./battle");
 
 const app = express();
 
-app.get('/battle', (req, res) => {
-  const result = battle(req.query.hero, req.query.villain)
+app.get("/battle", async (req, res) => {
+  const { hero, villain } = req.query;
+
+  if (!hero || !villain) {
+    res.status(400).send("hero and villain are required");
+    return;
+  }
+
+  const result = await battle(hero, villain);
+
   res.send(result);
 });
 
